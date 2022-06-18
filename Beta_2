@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class Main {
+
+    public static void main(String[] args) {
+        // TO DO
+        // Get user input
+        Scanner scn = new Scanner(System.in);
+        String userIn = scn.nextLine().toUpperCase();
+
+        String red = "";
+        String blue = "";
+        String green = "";
+        String white = "";
+
+        // loop through user input
+        // sort the user input
+        for(int i = 0; i < userIn.length(); i++){
+            char sorting = userIn.charAt(i);
+            if (sorting == 'R'){
+                red = red + 'R';
+            }
+            else if (sorting == 'B'){
+                blue = blue + 'B';
+            }
+            else if (sorting == 'G'){
+                green = green + "G";
+            }
+            else if (sorting == 'W') {
+                white = white + "W";
+            }
+        }
+        // construct the final output
+        System.out.println(red + blue + green + white);
+    }
+
+}
