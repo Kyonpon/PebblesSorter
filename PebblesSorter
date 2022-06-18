@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+class PebblesSorter {
+
+    public static void main(String[] args) {
+	    Scanner scn = new Scanner(System.in);
+
+        System.out.println("Enter a String");
+        String userIn = scn.nextLine();
+
+        char[] unsorted = userIn.toUpperCase().toCharArray();
+        System.out.println(unsorted);
+
+        char[] sortedA = new char[0];
+        char[] sortedB = new char[0];
+        char[] sortedC = new char[0];
+        char[] sortedD = new char[0];
+
+        // loop through the unsorted array
+        for (char s : unsorted){
+            switch (s){
+                case 'A':
+                    // add 1 element to a empty array
+                    sortedA = append(sortedA, 'A');
+                break;
+                case 'S':
+                    // add 1 element to a empty array
+                    sortedB = append(sortedB, 'S');
+                    break;
+                case 'D':
+                    // add 1 element to a empty array
+                    sortedC = append(sortedC, 'D');
+                    break;
+                case 'F':
+                    // add 1 element to a empty array
+                    sortedD = append(sortedD, 'F');
+                    break;
+            }
+        }
+
+        String A = sortedA.toString();
+        System.out.println(A);
+
+        int allArraylenght = sortedA.length + sortedB.length + sortedC.length + sortedD.length;
+        char[] sortedArray = new char[allArraylenght];
+        for (int i = 0; i < sortedA.length; i++){
+            sortedArray[i] = sortedA[i];
+        }
+
+        for (int i = 0; i < sortedB.length; i++){
+            sortedArray[sortedA.length + i] = sortedB[i];
+        }
+
+        for (int i = 0; i < sortedC.length; i++){
+            sortedArray[sortedA.length + sortedB.length + i] = sortedC[i];
+        }
+
+        for (int i = 0; i < sortedD.length; i++){
+            sortedArray[sortedA.length + sortedB.length + sortedC.length + i] = sortedD[i];
+        }
+
+        System.out.println(sortedArray);
+
+    }
+
+    public static char[] append(char[] origArray, char addChar){
+        char[] newCharArray = new char[origArray.length + 1];
+        for(int i = 0; i < origArray.length; i++){
+            newCharArray[i] = origArray[i];
+        }
+
+        newCharArray[newCharArray.length - 1] = addChar;
+        return newCharArray;
+    }
+
+
+
+}
